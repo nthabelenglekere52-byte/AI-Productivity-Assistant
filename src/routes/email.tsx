@@ -56,8 +56,8 @@ function EmailPage() {
 
   const generate = async () => {
     const next: Record<string, string> = {};
-    if (!form.recipient.trim()) next.recipient = "Please enter a recipient or role.";
-    if (!form.purpose.trim()) next.purpose = "Please describe the purpose of the email.";
+    if (!form.recipient.trim()) next["recipient"] = "Please enter a recipient or role.";
+    if (!form.purpose.trim()) next["purpose"] = "Please describe the purpose of the email.";
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -93,7 +93,7 @@ function EmailPage() {
 
       <section className="surface-card mb-6 p-5 sm:p-6">
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="Recipient / role" htmlFor="recipient" error={errors.recipient}>
+          <Field label="Recipient / role" htmlFor="recipient" error={errors["recipient"]}>
             <Input
               id="recipient"
               value={form.recipient}
@@ -101,7 +101,7 @@ function EmailPage() {
               placeholder="e.g. Line manager, Thabo (Finance)"
             />
           </Field>
-          <Field label="Email purpose" htmlFor="purpose" error={errors.purpose}>
+          <Field label="Email purpose" htmlFor="purpose" error={errors["purpose"]}>
             <Input
               id="purpose"
               value={form.purpose}
@@ -172,13 +172,4 @@ function EmailPage() {
       <ResponsibleAI compact />
     </AppShell>
   );
-}
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/email')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/email"!</div>
 }

@@ -9,8 +9,8 @@ export function Field({
 }: {
   label: string;
   htmlFor: string;
-  hint?: string;
-  error?: string;
+  hint?: string | undefined;
+  error?: string | undefined;
   children: ReactNode;
 }) {
   return (
