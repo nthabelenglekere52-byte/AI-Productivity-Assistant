@@ -71,7 +71,6 @@ export function AppShell({ children }: { children: ReactNode }) {
           aria-expanded={open}
           className="rounded-xl border border-border p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          {open ? <Menu className="size-5 hidden" /> : null}
           {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
         </button>
       </header>
